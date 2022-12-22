@@ -1,0 +1,19 @@
+<ng-form>
+  <div class="example-container">
+    {{listCategories}}
+    <mat-grid-list cols="2" rowHeight="3:1">
+      <mat-grid-tile *ngFor="let category of categories">
+        {{category.categoryName}} {{category.id}}
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-form-field>
+      <mat-label >Add Category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categories">
+          <button type="submit" (click)="SendBookCategoryToInsert(category)">{{category.categoryName}} {{category.id}}</button>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</ng-form>
+
