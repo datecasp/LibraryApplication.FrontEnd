@@ -1,3 +1,10 @@
+.jumbtron {
+  padding-top: 60px;
+}
+
+.table-header {
+}
+
 .bg-primary {
   color: white;
   background-color: blueviolet;

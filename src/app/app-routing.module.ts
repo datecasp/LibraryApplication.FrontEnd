@@ -7,10 +7,11 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { CategoryComponent } from './categories/category/category.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserComponent } from './users/user/user.component';
+import { BookHomeComponent } from './books/book-home/book-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'books', component: BookListComponent },
+  { path: 'books', component: BookHomeComponent },
   { path: 'book', component: BookComponent },
   { path: 'book/:id', component: BookComponent },
   { path: 'categories', component: CategoryListComponent },
