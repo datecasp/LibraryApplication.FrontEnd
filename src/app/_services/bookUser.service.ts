@@ -20,8 +20,8 @@ export class BookUserService {
   }
 
     //IMPLEMENTAR LOGICA UserReturnsBook(bookId, userID)
-  public userReturnsBook(id: number) {
-    return this.http.delete(this.baseUrl + 'books/' + id);
+  public async userReturnsBook(bookUserDto: BookUserDto) {
+    return await this.http.put(this.baseUrl + 'userreturnsbook', bookUserDto);
   }
 
   public searchBooksOfUser(userId: number): Observable<BookCategoryDto[]> {

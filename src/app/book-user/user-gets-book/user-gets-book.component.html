@@ -3,12 +3,12 @@
     <h2 class="text-center text-primary">User gets book</h2>
     <div class="form-group">
       <input name="userId" #userId="ngModel" [(ngModel)]="formData.userId" class="form-control" required
-             [ngClass]="{'is-invalid': form.controls['userId']?.invalid && form.controls['title']?.touched}" placeholder="Enter user Id">
+             [ngClass]="{'is-invalid': form.controls['userId']?.invalid && form.controls['userId']?.touched}" placeholder="Enter user Id">
       <div class="invalid-feedback" *ngIf="userId.invalid && userId.touched">Please inform the user Id.</div>
     </div>
     <div class="form-group">
       <input name="bookId" #bookId="ngModel" [(ngModel)]="formData.bookId" class="form-control" placeholder="Enter book Id"
-             [ngClass]="{'is-invalid': form.controls['bookId']?.invalid && form.controls['author']?.touched}" required>
+             [ngClass]="{'is-invalid': form.controls['bookId']?.invalid && form.controls['bookId']?.touched}" required>
       <div class="invalid-feedback" *ngIf="bookId.invalid && bookId.touched">Please inform the book Id.</div>
     </div>
 
