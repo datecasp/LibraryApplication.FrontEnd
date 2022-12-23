@@ -28,6 +28,8 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
 import { BookHomeComponent } from './books/book-home/book-home.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
+import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
     UserListComponent,
     AddCategoryToBookComponent,
     BookHomeComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    UserGetsBookComponent,
+    UserReturnsBookComponent
   ],
   imports: [
     BrowserModule,

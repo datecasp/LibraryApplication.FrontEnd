@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from '../../_models/Book';
 import { BookAvailabilityDto } from '../../_models/BookAvailabilityDto';
-import { BookUserDto } from '../../_models/BookUserDto';
 import { User } from '../../_models/User';
 import { BookService } from '../../_services/book.service';
 import { BookUserService } from '../../_services/bookUser.service';
@@ -20,7 +19,6 @@ export class BookHomeComponent implements OnInit {
   public isAvailable: boolean = true;
   public users: User[] = [{ id: -11, userName: "kkkk", isActive: true }];
   public bookAvailability: BookAvailabilityDto[] = [];
-  @Input() bookId: number = -22;
 
   constructor(private router: Router,
     private bookService: BookService,
@@ -46,6 +44,14 @@ export class BookHomeComponent implements OnInit {
 
   public addBook() {
     this.router.navigate(['/book']);
+  }
+
+  public userGetsBook() {
+    this.router.navigate(['/usergetsbook']);
+  }
+
+  public userReturnsBook() {
+    this.router.navigate(['/userreturnsbook']);
   }
 
 }

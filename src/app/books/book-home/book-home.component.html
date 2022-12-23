@@ -2,8 +2,12 @@
   <h1 class="display-4 text-center">Books</h1>
 </div>
 <div class="col-md-12">
-  <button type="button" class="btn btn-success" (click)="addBook()">New Book</button>
-  <hr />
+  <div class="btn-action-bar">
+    <button type="button" class="btn btn-success" (click)="addBook()">New Book</button>
+    <button type="button" class="btn btn-success" (click)="userGetsBook()">User gets Book</button>
+    <button type="button" class="btn btn-success" (click)="userReturnsBook()">User returns Book</button>
+  </div>
+    <hr />
   <table class="table table-condensed table-bordered table-striped table-hover">
     <thead>
       <tr class="th-header-style">
