@@ -31,8 +31,7 @@ export class UserGetsBookComponent implements OnInit {
   }
 
   public async insertRecord(form: NgForm) {
-    console.log(Number(form.value.userId), Number(form.value.bookId));
-    (await this.bookUserService.userGetsBook(Number(form.value.userId), Number(form.value.bookId))).subscribe(() => {
+    (await this.bookUserService.userGetsBook(this.formData)).subscribe(() => {
       this.toastr.success('Registration successful');
       this.resetForm(form);
       this.router.navigate(['/books']);

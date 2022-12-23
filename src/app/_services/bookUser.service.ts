@@ -12,17 +12,11 @@ import { BookUserDto } from '../_models/BookUserDto';
 })
 export class BookUserService {
   private baseUrl: string = environment.baseUrl + 'api/';
-  public bookUserDto: BookUserDto = new BookUserDto();
 
   constructor(private http: HttpClient) { }
   //IMPLEMENTAR LOGICA userGetsBook(bookId, userID)
-  public async userGetsBook(userId: number, bookId: number) {
-    this.bookUserDto.userId = userId;
-    this.bookUserDto.bookId = bookId;
-    this.bookUserDto.actualUser = true;
-    console.log(this.bookUserDto.userId, this.bookUserDto.bookId = bookId);
-
-    return await this.http.post(this.baseUrl + 'usergetsbook', this.bookUserDto);
+  public async userGetsBook(bookUserDto: BookUserDto) {
+    return await this.http.post(this.baseUrl + 'usergetsbook', bookUserDto);
   }
 
     //IMPLEMENTAR LOGICA UserReturnsBook(bookId, userID)
