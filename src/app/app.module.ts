@@ -26,6 +26,10 @@ import { NgbdDatepickerPopup } from './datepicker/datepicker-popup';
 import { UserComponent } from './users/user/user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
+import { BookHomeComponent } from './books/book-home/book-home.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
+import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { AddCategoryToBookComponent } from './add-category-to-book/add-category-
     NgbdDatepickerPopup,
     UserComponent,
     UserListComponent,
-    AddCategoryToBookComponent
+    AddCategoryToBookComponent,
+    BookHomeComponent,
+    BookDetailComponent,
+    UserGetsBookComponent,
+    UserReturnsBookComponent
   ],
   imports: [
     BrowserModule,

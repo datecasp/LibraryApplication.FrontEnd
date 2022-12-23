@@ -1,0 +1,30 @@
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Books</h1>
+</div>
+<div class="col-md-12">
+  <div class="btn-action-bar">
+    <button type="button" class="btn btn-success" (click)="addBook()">New Book</button>
+    <button type="button" class="btn btn-success" (click)="userGetsBook()">User gets Book</button>
+    <button type="button" class="btn btn-success" (click)="userReturnsBook()">User returns Book</button>
+  </div>
+    <hr />
+  <table class="table table-condensed table-bordered table-striped table-hover">
+    <thead>
+      <tr class="th-header-style">
+        <th class="col-md-4">Title</th>
+        <th class="col-md-4">Author</th>
+        <th class="col-md-2">Id</th>
+        <th class="col-md-2">Available</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let bookAv of bookAvailability">
+        <td>{{bookAv.title}}</td>
+        <td>{{bookAv.author}}</td>
+        <td>{{bookAv.bookId}}</td>
+        <td>{{bookAv.isAvailable}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

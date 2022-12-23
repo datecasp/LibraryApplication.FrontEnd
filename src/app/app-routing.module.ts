@@ -7,12 +7,17 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { CategoryComponent } from './categories/category/category.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserComponent } from './users/user/user.component';
+import { BookHomeComponent } from './books/book-home/book-home.component';
+import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
+import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'books', component: BookListComponent },
+  { path: 'books', component: BookHomeComponent }, 
   { path: 'book', component: BookComponent },
   { path: 'book/:id', component: BookComponent },
+  { path: 'usergetsbook', component: UserGetsBookComponent },
+  { path: 'userreturnsbook', component: UserReturnsBookComponent },
   { path: 'categories', component: CategoryListComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'category/:id', component: CategoryComponent },
