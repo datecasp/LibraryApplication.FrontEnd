@@ -6,6 +6,7 @@ import { BookAvailabilityDto } from '../../_models/BookAvailabilityDto';
 import { User } from '../../_models/User';
 import { BookService } from '../../_services/book.service';
 import { BookUserService } from '../../_services/bookUser.service';
+import { ConfirmationDialogService } from '../../_services/confirmation-dialog.service';
 
 @Component({
   selector: 'app-book-home',
@@ -23,7 +24,8 @@ export class BookHomeComponent implements OnInit {
   constructor(private router: Router,
     private bookService: BookService,
     private bookUserService: BookUserService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit(): void {
 
@@ -44,6 +46,27 @@ export class BookHomeComponent implements OnInit {
 
   public addBook() {
     this.router.navigate(['/book']);
+  }
+
+  public detailsBook(bookId: number) {
+    this.router.navigate(['/bookdetail/' + bookId]);
+  }
+
+  public editBook(bookId: number) {
+    this.router.navigate(['/book/' + bookId]);
+  }
+
+  public deleteBook(bookId: number) {
+    this.confirmationDialogService.confirm('Atention', 'Do you really want to delete this book?')
+      .then(() =>
+        this.bookService.deleteBook(bookId).subscribe(() => {
+          this.toastr.success('The book has been deleted');
+          this.getValues();
+        },
+          err => {
+            this.toastr.error('Failed to delete the book.');
+          }))
+      .catch(() => '');
   }
 
   public userGetsBook() {

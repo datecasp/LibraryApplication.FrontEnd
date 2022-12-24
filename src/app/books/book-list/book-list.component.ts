@@ -20,7 +20,7 @@ export class BookListComponent implements OnInit {
   public searchValueChanged: Subject<string> = new Subject<string>();
 
   constructor(private router: Router,
-    private boookService: BookService,
+    private bookService: BookService,
     private toastr: ToastrService,
     private confirmationDialogService: ConfirmationDialogService) { }
 
@@ -35,7 +35,7 @@ export class BookListComponent implements OnInit {
 
   private getValues() {
 
-    this.boookService.getBooks().subscribe(books => {
+    this.bookService.getBooks().subscribe(books => {
       this.books = books;
     });
   }
@@ -51,7 +51,7 @@ export class BookListComponent implements OnInit {
   public deleteBook(bookId: number) {
     this.confirmationDialogService.confirm('Atention', 'Do you really want to delete this book?')
       .then(() =>
-        this.boookService.deleteBook(bookId).subscribe(() => {
+        this.bookService.deleteBook(bookId).subscribe(() => {
           this.toastr.success('The book has been deleted');
           this.getValues();
         },
@@ -63,13 +63,13 @@ export class BookListComponent implements OnInit {
 
   private search() {
     if (this.searchTerm !== '') {
-      this.boookService.searchBooksWithCategory(this.searchTerm).subscribe(book => {
+      this.bookService.searchBooksWithCategory(this.searchTerm).subscribe(book => {
         this.books = book;
       }, error => {
         this.books = [];
       });
     } else {
-      this.boookService.getBooks().subscribe(books => this.books = books);
+      this.bookService.getBooks().subscribe(books => this.books = books);
     }
   }
 }
