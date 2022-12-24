@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\book-user",
+    "\\src\\app\\book-user\\user-gets-book",
+    "\\src\\app\\book-user\\user-returns-book",
+    "\\src\\app\\books",
+    "\\src\\app\\books\\book-detail",
+    "\\src\\app\\categories",
+    "\\src\\app\\categories\\category",
+    "\\src\\app\\_services"
+  ],
+  "SelectedNode": "\\src\\app\\books\\book-detail\\book-detail.component.css",
+  "PreviewInSolutionExplorer": false
+}
