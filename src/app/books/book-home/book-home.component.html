@@ -13,8 +13,9 @@
       <tr class="th-header-style">
         <th class="col-md-4">Title</th>
         <th class="col-md-4">Author</th>
-        <th class="col-md-2">Id</th>
+        <th class="col-md-1">Id</th>
         <th class="col-md-2">Available</th>
+        <th class="col-md-1">Options</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,11 @@
         <td>{{bookAv.author}}</td>
         <td>{{bookAv.bookId}}</td>
         <td>{{bookAv.isAvailable}}</td>
+        <td class="action-button-column">
+          <a title="Details" (click)="detailsBook(bookAv.bookId)"><i class="fas fa-search"></i> </a>
+          <a title="Edit" (click)="editBook(bookAv.bookId)" style="margin-left: 12px;"><i class="fas fa-edit"></i> </a>
+          <a title="Delete" (click)="deleteBook(bookAv.bookId)" style="margin-left: 12px;"><i class="fas fa-trash-alt"></i> </a>
+        </td>
       </tr>
     </tbody>
   </table>
