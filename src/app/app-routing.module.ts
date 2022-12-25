@@ -7,6 +7,8 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { CategoryComponent } from './categories/category/category.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserComponent } from './users/user/user.component';
+import { UserHomeComponent } from './users/user-home/user-home.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { BookHomeComponent } from './books/book-home/book-home.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
@@ -23,8 +25,9 @@ const routes: Routes = [
   { path: 'categories', component: CategoryListComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'category/:id', component: CategoryComponent },
-  { path: 'users', component: UserListComponent },
+  { path: 'users', component: UserHomeComponent },
   { path: 'user', component: UserComponent },
+  { path: 'userdetail/:id', component: UserDetailComponent },
   { path: 'user/:id', component: UserComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

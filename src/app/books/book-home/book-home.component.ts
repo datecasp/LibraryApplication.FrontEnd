@@ -65,6 +65,7 @@ export class BookHomeComponent implements OnInit {
         },
           err => {
             this.toastr.error('Failed to delete the book.');
+            this.getValues();
           }))
       .catch(() => '');
   }

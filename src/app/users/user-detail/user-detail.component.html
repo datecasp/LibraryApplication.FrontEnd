@@ -1,0 +1,19 @@
+<div class="jumbtron col-md-5">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile [colspan]="4" [rowspan]="4">
+      <img src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/photo_portrait.png" />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+      Name:   {{user.userName}}
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+      Id:   {{user.id}}
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+      Is active:   {{user.isActive}}
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="button" (click)="back()">Back</button>
+  </div>
+</div>

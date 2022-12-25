@@ -1,5 +1,15 @@
 export class User {
-  id: number = -11;
-  userName: string = "";
-  isActive: boolean = true;
+  id: number;
+  userName: string;
+  isActive: boolean;
+
+  constructor(
+    id: number,
+    userName: string,
+    isActive: boolean)
+  {
+    this.id = id;
+    this.userName = userName;
+    this.isActive = isActive;
+  }
 }

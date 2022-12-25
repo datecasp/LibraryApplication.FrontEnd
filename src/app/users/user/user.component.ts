@@ -11,7 +11,7 @@ import { UserService } from 'src/app/_services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  public formData: User = new User;
+  public formData: User = new User(0, "", true);
 
   constructor(public service: UserService,
     private router: Router,
