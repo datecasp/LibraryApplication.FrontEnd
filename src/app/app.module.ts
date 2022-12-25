@@ -15,19 +15,20 @@ import { AppComponent } from './app.component';
 import { BookService } from './_services/book.service';
 import { CategoryService } from './_services/category.service';
 import { ConfirmationDialogService } from './_services/confirmation-dialog.service';
-import { CategoryComponent } from './categories/category/category.component';
-import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { BookComponent } from './books/book/book.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { NgbdDatepickerPopup } from './datepicker/datepicker-popup';
-import { UserComponent } from './users/user/user.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
+import { HomeComponent } from './home/home.component';
+import { BookComponent } from './books/book/book.component';
 import { BookHomeComponent } from './books/book-home/book-home.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { CategoryComponent } from './categories/category/category.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { UserComponent } from './users/user/user.component';
+import { UserHomeComponent } from './users/user-home/user-home.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 
@@ -48,7 +49,8 @@ import { UserReturnsBookComponent } from './book-user/user-returns-book/user-ret
     BookHomeComponent,
     BookDetailComponent,
     UserGetsBookComponent,
-    UserReturnsBookComponent
+    UserReturnsBookComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
