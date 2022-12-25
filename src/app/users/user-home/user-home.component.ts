@@ -58,7 +58,7 @@ export class UserHomeComponent implements OnInit {
    *  Modify url to navigate when component is done
    */
   public detailsUser(userId: number) {
-    this.router.navigate(['/bookdetail/' + userId]);
+    this.router.navigate(['/userdetail/' + userId]);
   }
 
   public editUser(userId: number) {

@@ -27,6 +27,7 @@ import { CategoryComponent } from './categories/category/category.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { UserComponent } from './users/user/user.component';
 import { UserHomeComponent } from './users/user-home/user-home.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
@@ -50,7 +51,8 @@ import { UserReturnsBookComponent } from './book-user/user-returns-book/user-ret
     BookDetailComponent,
     UserGetsBookComponent,
     UserReturnsBookComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
