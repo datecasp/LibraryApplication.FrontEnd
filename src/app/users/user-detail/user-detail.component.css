@@ -3,6 +3,11 @@
   align-items: center;
 }
 
+.form {
+  margin: 0 auto !important;
+  float: none !important;
+}
+
 .bg-primary {
   color: white;
   background-color: blueviolet;
