@@ -1,18 +1,20 @@
 <div class="jumbtron">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
-    <h2 class="text-center text-primary">Book</h2>
+    <h2 class="text-center text-primary">Edit book</h2>
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">
+      <h3>Title:</h3>
       <input name="title" #title="ngModel" [(ngModel)]="formData.title" class="form-control" required
              [ngClass]="{'is-invalid': form.controls['title']?.invalid && form.controls['title']?.touched}" placeholder="Title">
       <div class="invalid-feedback" *ngIf="title.invalid && title.touched">Please inform the book's title.</div>
     </div>
     <div class="form-group">
+      <h3>Author:</h3>
       <input name="author" #author="ngModel" [(ngModel)]="formData.author" class="form-control" placeholder="Author"
              [ngClass]="{'is-invalid': form.controls['author']?.invalid && form.controls['author']?.touched}" required>
       <div class="invalid-feedback" *ngIf="author.invalid && author.touched">Please inform the author's name.</div>
     </div>
-    
+    <app-category-selector [book] = "formData"></app-category-selector>
     <div class="form-group text-center">
       <button class="btn btn-success mr-2" [disabled]="form.invalid" type="submit">Save</button>
       <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>

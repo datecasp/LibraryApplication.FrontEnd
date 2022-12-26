@@ -20,6 +20,10 @@ export class UserService {
     return this.http.put(this.baseUrl + 'users/' + id, user);
   }
 
+  public toggleUserAvailability(id: number, user: User) {
+    return this.http.put(this.baseUrl + 'users/useravailability/' + id, user);
+  }
+
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'users');
   }

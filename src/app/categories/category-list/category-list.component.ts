@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmationDialogService } from 'src/app/_services/confirmation-dialog.service';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { Category } from '../../_models/Category';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-category-list',

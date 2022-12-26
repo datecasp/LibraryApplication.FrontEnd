@@ -1,0 +1,15 @@
+<ng-form>
+    <h3 class="text-center text-primary">Select categories</h3>
+    <ul>
+      <li *ngFor="let category of selectedCategories">
+        <mat-checkbox (click)="change(category)" *ngIf="category.isSelected; else inactive"
+                      [checked]="true">
+          {{category.categoryName}}
+        </mat-checkbox>
+        <ng-template #inactive>
+          <mat-checkbox (click)="change(category)" [checked]="false">
+            {{category.categoryName}}
+          </mat-checkbox>
+        </ng-template>
+    </ul>
+</ng-form>

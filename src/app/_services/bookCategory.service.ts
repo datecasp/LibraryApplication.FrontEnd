@@ -12,14 +12,14 @@ export class BookCategoryService {
   private baseUrl: string = environment.baseUrl + 'api/';
 
   constructor(private http: HttpClient) { }
-  //IMPLEMENTAR LOGICA AddCategoryToBook(bookId, categoryID)
-  public async addBookCategory(bookCategory: BookCategoryDto) {
-    return await this.http.post(this.baseUrl + 'books/addcategorytobook', bookCategory);
+
+  public async addBookCategory(bookCategoryDto: BookCategoryDto) {
+    return await this.http.post(this.baseUrl + 'books/addcategorytobook', bookCategoryDto);
   }
 
     //IMPLEMENTAR LOGICA RemoveCategoryFromBook(bookId, categoryID)
-  public deleteBookCategory(id: number) {
-    return this.http.delete(this.baseUrl + 'books/' + id);
+  public deleteBookCategory(bookCategoryDto: BookCategoryDto) {
+    return this.http.delete(this.baseUrl + 'books/removecategoryfrombook', {body:bookCategoryDto});
   }
 
   public searchBooksWithCategory(categoryId: number): Observable<BookCategoryDto[]> {
