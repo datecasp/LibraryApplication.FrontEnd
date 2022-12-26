@@ -50,13 +50,8 @@ export class UserHomeComponent implements OnInit {
             this.getValues();
           }))
       .catch(() => '');
-    //this.userService.toggleUserAvailability(userId, user);
-    //this.router.onSameUrlNavigation = 'reload';
-    //this.router.navigate(['users'])
   }
-  /*
-   *  Modify url to navigate when component is done
-   */
+
   public detailsUser(userId: number) {
     this.router.navigate(['/userdetail/' + userId]);
   }
@@ -78,4 +73,11 @@ export class UserHomeComponent implements OnInit {
     //  .catch(() => '');
   }
 
+  public userGetsBook() {
+    this.router.navigate(['/usergetsbook']);
+  }
+
+  public userReturnsBook() {
+    this.router.navigate(['/userreturnsbook']);
+  }
 }
