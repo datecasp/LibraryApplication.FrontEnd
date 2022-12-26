@@ -60,19 +60,6 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(['/user/' + userId]);
   }
 
-  public deleteUser(userId: number) {
-    //this.confirmationDialogService.confirm('Atention', 'Do you really want to delete this user?')
-    //  .then(() =>
-    //    this.bookService.deleteBook(userId).subscribe(() => {
-    //      this.toastr.success('The user has been deleted');
-    //      this.getValues();
-    //    },
-    //      err => {
-    //        this.toastr.error('Failed to delete the user.');
-    //      }))
-    //  .catch(() => '');
-  }
-
   public userGetsBook() {
     this.router.navigate(['/usergetsbook']);
   }

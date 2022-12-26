@@ -2,16 +2,25 @@
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
     <h2 class="text-center text-primary">User gets book</h2>
     <div class="form-group">
-      <input name="userId" #userId="ngModel" [(ngModel)]="formData.userId" class="form-control" required
-             [ngClass]="{'is-invalid': form.controls['userId']?.invalid && form.controls['userId']?.touched}" placeholder="Enter user Id">
-      <div class="invalid-feedback" *ngIf="userId.invalid && userId.touched">Please inform the user Id.</div>
+      <mat-form-field>
+        <mat-label>Select user</mat-label>
+        <mat-select [(ngModel)]="selectedUser" name="UserId">
+          <mat-option *ngFor="let user of users" [value]="user.id" >
+            <i [ngClass]="{'is-invalid': form.controls['title']?.invalid && form.controls['title']?.touched}">{{user.userName}}</i>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-group">
-      <input name="bookId" #bookId="ngModel" [(ngModel)]="formData.bookId" class="form-control" placeholder="Enter book Id"
-             [ngClass]="{'is-invalid': form.controls['bookId']?.invalid && form.controls['bookId']?.touched}" required>
-      <div class="invalid-feedback" *ngIf="bookId.invalid && bookId.touched">Please inform the book Id.</div>
+      <mat-form-field>
+        <mat-label>Select book</mat-label>
+        <mat-select [(ngModel)]="selectedBook" name="BookId">
+          <mat-option *ngFor="let book of booksAvailables" [value]="book.id">
+            <i [ngClass]="{'is-invalid': form.controls['title']?.invalid && form.controls['title']?.touched}">{{book.title}}</i>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-
     <div class="form-group text-center">
       <button class="btn btn-success mr-2" [disabled]="form.invalid" type="submit">Save</button>
       <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>

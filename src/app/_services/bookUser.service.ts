@@ -14,12 +14,11 @@ export class BookUserService {
   private baseUrl: string = environment.baseUrl + 'api/';
 
   constructor(private http: HttpClient) { }
-  //IMPLEMENTAR LOGICA userGetsBook(bookId, userID)
+
   public async userGetsBook(bookUserDto: BookUserDto) {
     return await this.http.post(this.baseUrl + 'usergetsbook', bookUserDto);
   }
 
-    //IMPLEMENTAR LOGICA UserReturnsBook(bookId, userID)
   public async userReturnsBook(bookUserDto: BookUserDto) {
     return await this.http.put(this.baseUrl + 'userreturnsbook', bookUserDto);
   }
