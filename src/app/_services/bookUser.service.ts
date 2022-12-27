@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environments';
 import { Category } from '../_models/Category';
 import { User } from '../_models/User';
 import { BookUserDto } from '../_models/BookUserDto';
+import { Book } from '../_models/Book';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,15 @@ export class BookUserService {
     return await this.http.put(this.baseUrl + 'userreturnsbook', bookUserDto);
   }
 
-  public searchBooksOfUser(userId: number): Observable<BookCategoryDto[]> {
-    return this.http.get<BookCategoryDto[]>(this.baseUrl + 'books/booksuser/userId/' + userId);
+  public searchBooksOfUser(userId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl + 'booksofuser/userId/' + userId);
   }
 
   public searchUsersOfBook(bookId: number): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'books/usersofbook/bookId/'+bookId);
+    return this.http.get<User[]>(this.baseUrl + 'usersofbook/bookId/'+bookId);
   }
 
   public searchAvailabilityOfBook(bookId: number): Observable<boolean> {
-    return this.http.get<boolean>(this.baseUrl + 'books/availabilityofbook/bookId/' + bookId);
+    return this.http.get<boolean>(this.baseUrl + 'availabilityofbook/bookId/' + bookId);
   }
 }

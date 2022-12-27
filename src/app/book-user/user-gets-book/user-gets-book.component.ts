@@ -20,8 +20,8 @@ export class UserGetsBookComponent implements OnInit {
   users: User[] = [];
   booksAvailables: Book[] = [];
   public bookAvailability: BookAvailabilityDto[] = [];
-  selectedUser: string = "";
-  selectedBook: string = "";
+  selectedUser: number = 0;
+  selectedBook: number = 0;
 
   constructor(public bookUserService: BookUserService,
     private userService: UserService,
@@ -63,8 +63,8 @@ export class UserGetsBookComponent implements OnInit {
   }
 
   public async insertRecord(form: NgForm) {
-    this.formData.bookId = Number(this.selectedBook);
-    this.formData.userId = Number(this.selectedUser);
+    this.formData.bookId = this.selectedBook;
+    this.formData.userId = this.selectedUser;
 
     (await this.bookUserService.userGetsBook(this.formData)).subscribe(() => {
       this.toastr.success('Registration successful');
