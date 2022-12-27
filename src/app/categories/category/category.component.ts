@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Category } from 'src/app/_models/Category';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/_services/category.service';
@@ -13,9 +14,10 @@ import { CategoryService } from 'src/app/_services/category.service';
 export class CategoryComponent implements OnInit {
   public formData: Category = new Category;
 
-  constructor(public service: CategoryService,
+  constructor(public categoryService: CategoryService,
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -27,7 +29,7 @@ export class CategoryComponent implements OnInit {
     });
 
     if (id != null) {
-      this.service.getCategoryById(id).subscribe(category => {
+      this.categoryService.getCategoryById(id).subscribe(category => {
         this.formData = category;
       }, error => {
         this.toastr.error('An error occurred on get the record.');
@@ -56,27 +58,33 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  public insertRecord(form: NgForm) {
-    this.service.addCategory(form.form.value).subscribe(() => {
+  public async insertRecord(form: NgForm) {
+    (await this.categoryService.addCategory(form.form.value)).subscribe(() => {
       this.toastr.success('Registration successful');
       this.resetForm(form);
-      this.router.navigate(['/categories']);
-    }, () => {
-      this.toastr.error('An error occurred on insert the record.');
+      this.goBack();
+    }, err => {
+      this.toastr.error('Saved but not right message IDKW.');
+      this.goBack();
     });
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
   public updateRecord(form: NgForm) {
-    this.service.updateCategory(form.form.value.id, form.form.value).subscribe(() => {
-      this.toastr.success('Updated successful');
+    this.categoryService.updateCategory(form.form.value.id, form.form.value).subscribe(() => {
+      this.toastr.success('Registration successful');
       this.resetForm(form);
-      this.router.navigate(['/categories']);
-    }, () => {
-      this.toastr.error('An error occurred on update the record.');
+      this.goBack();
+    }, err => {
+      this.toastr.error('Saved but not right message IDKW.');
+      this.goBack();
     });
   }
 
   public cancel() {
-    this.router.navigate(['/categories']);
+    this.goBack();
   }
 }

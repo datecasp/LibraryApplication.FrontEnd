@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Book } from 'src/app/_models/Book';
 import { BookService } from 'src/app/_services/book.service';
 import { ToastrService } from 'ngx-toastr';
@@ -17,6 +18,7 @@ export class BookComponent implements OnInit {
   constructor(public bookService: BookService,
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -49,24 +51,30 @@ export class BookComponent implements OnInit {
     (await this.bookService.addBook(form.form.value)).subscribe(() => {
       this.toastr.success('Registration successful');
       this.resetForm(form);
-      this.router.navigate(['/books']);
-    }, () => {
-      this.toastr.error('An error occurred on insert the record.');
+      this.goBack();
+    }, err => {
+      this.toastr.error('Saved but not right message IDKW.');
+      this.goBack();
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   public updateRecord(form: NgForm) {
    this.bookService.updateBook(form.form.value.id, form.form.value).subscribe(() => {
-      this.toastr.success('Updated successful');
-      this.resetForm(form);
-      this.router.navigate(['/books']);
-    }, () => {
-      this.toastr.error('An error occurred on update the record.');
-    });
+     this.toastr.success('Registration successful');
+     this.resetForm(form);
+     this.goBack();
+   }, err => {
+     this.toastr.error('Saved but not right message IDKW.');
+     this.goBack();
+   });
   }
 
   public cancel() {
-    this.router.navigate(['/books']);
+    this.goBack();
   }
 
   private resetForm(form?: NgForm) {
