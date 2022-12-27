@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from '../../_models/Book';
@@ -28,6 +29,7 @@ export class UserReturnsBookComponent {
     private bookService: BookService,
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -76,14 +78,20 @@ export class UserReturnsBookComponent {
     (await this.bookUserService.userReturnsBook(this.formData)).subscribe(() => {
       this.toastr.success('Registration successful');
       this.resetForm(form);
-      this.router.navigate(['/books']);
-    }, () => {
-      this.toastr.error('An error occurred on insert the record.');
+      this.goBack();
+    }, err => {
+      this.toastr.error('Saved but not right message IDKW.');
+      this.goBack();
     });
   }
 
+
+  goBack(): void {
+    this.location.back();
+  }
+
   public cancel() {
-    this.router.navigate(['/books']);
+    this.goBack();
   }
 
   private resetForm(form?: NgForm) {
