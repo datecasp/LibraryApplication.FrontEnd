@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { BookListComponent } from './books/book-list/book-list.component';
 import { BookComponent } from './books/book/book.component';
-import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { CategoryComponent } from './categories/category/category.component';
-import { UserDetailComponent } from './users/user-detail/user-detail.component';
-import { UserComponent } from './users/user/user.component';
-import { UserHomeComponent } from './users/user-home/user-home.component';
 import { BookHomeComponent } from './books/book-home/book-home.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { CategoryComponent } from './categories/category/category.component';
+import { CategoryHomeComponent } from './categories/category-home/category-home.component';
+import { UserComponent } from './users/user/user.component';
+import { UserHomeComponent } from './users/user-home/user-home.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
-import { AddCategoryToBookComponent } from './add-category-to-book/add-category-to-book.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,7 +20,7 @@ const routes: Routes = [
   { path: 'book/:id', component: BookComponent },
   { path: 'usergetsbook', component: UserGetsBookComponent },
   { path: 'userreturnsbook', component: UserReturnsBookComponent },
-  { path: 'categories', component: CategoryListComponent },
+  { path: 'categories', component: CategoryHomeComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'category/:id', component: CategoryComponent },
   { path: 'users', component: UserHomeComponent },

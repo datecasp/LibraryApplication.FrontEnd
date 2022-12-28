@@ -37,6 +37,7 @@ import { AddCategoryToBookComponent } from './add-category-to-book/add-category-
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 import { CategorySelectorComponent } from './categories/category-selector/category-selector.component';
+import { CategoryHomeComponent } from './categories/category-home/category-home.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CategorySelectorComponent } from './categories/category-selector/catego
     UserReturnsBookComponent,
     UserHomeComponent,
     UserDetailComponent,
-    CategorySelectorComponent
+    CategorySelectorComponent,
+    CategoryHomeComponent
   ],
   imports: [
     BrowserModule,

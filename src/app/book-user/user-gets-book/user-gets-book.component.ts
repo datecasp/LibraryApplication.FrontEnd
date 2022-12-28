@@ -19,6 +19,7 @@ import { BookAvailabilityDto } from '../../_models/BookAvailabilityDto';
 export class UserGetsBookComponent implements OnInit {
   public formData: BookUserDto = new BookUserDto();
   users: User[] = [];
+  usersActive: User[] = [];
   booksAvailables: Book[] = [];
   public bookAvailability: BookAvailabilityDto[] = [];
   selectedUser: number = 0;
@@ -35,6 +36,13 @@ export class UserGetsBookComponent implements OnInit {
   ngOnInit(): void {
     (this.userService.getUsers()).subscribe(async users => {
       this.users = users;
+      for (let user of this.users)
+      {
+        if (user.isActive)
+        {
+          this.usersActive.push(new User(user.id, user.userName, true));
+        }
+      }
       this.getValues();
     });
 

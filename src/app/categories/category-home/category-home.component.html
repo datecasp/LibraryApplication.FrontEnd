@@ -1,23 +1,26 @@
 <div class="jumbtron">
-  <h1 class="display-4 text-center">Categories</h1>
+  <h1 class="text-center text-primary">Categories</h1>
 </div>
-
 <div class="col-md-12">
-  <button type="button" class="btn btn-success" (click)="addCategory()">New Category</button>
+  <div class="btn-action-bar">
+    <button type="button" class="btn btn-success" (click)="addCategory()">New Category</button>
+  </div>
   <hr />
-
   <table class="table table-condensed table-bordered table-striped table-hover">
     <thead>
-      <tr>
-        <th class="col-md-7">Category</th>
-        <th>Options</th>
+      <tr class="th-header-style">
+        <th class="col-md-8">Category</th>
+        <th class="col-md-2">Id</th>
+        <th class="col-md-2">Options</th>
       </tr>
     </thead>
     <tbody>
+      <tr>
       <tr *ngFor="let category of categories">
         <td>{{category.categoryName}}</td>
+        <td>{{category.id}}</td>
         <td class="action-button-column">
-          <a title="Edit" (click)="editCategory(category.id)">
+          <a title="Edit" (click)="editCategory(category.id)" style="margin-left: 12px;">
             <i class="fas fa-edit"></i>
           </a>
           <a title="Delete" (click)="deleteCategory(category.id)" style="margin-left: 12px;">
@@ -26,6 +29,5 @@
         </td>
       </tr>
     </tbody>
-
   </table>
 </div>

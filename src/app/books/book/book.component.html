@@ -1,6 +1,6 @@
 <div class="jumbtron">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
-    <h2 class="text-center text-primary"*ngIf="formData.id != 0 else editTitle">Edit book</h2>
+    <h2 class="text-center text-primary" *ngIf="formData.id != 0 else editTitle">Edit book</h2>
     <ng-template #editTitle><h2 class="text-center text-primary">Create book</h2></ng-template>
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">
@@ -16,13 +16,16 @@
       <div class="invalid-feedback" *ngIf="author.invalid && author.touched">Please inform the author's name.</div>
     </div>
     <a *ngIf="formData.id != 0 else edit">
+      <h3 class="text-center text-primary">Save changes in book. Categories are autosaved by click.</h3>
       <app-category-selector [book]="formData"></app-category-selector>
     </a>
-    <ng-template #edit><h3 class="text-center text-primary">After create the book, edit it to add categories.</h3></ng-template>
+    <ng-template #edit>
+      <h3 class="text-center text-primary">After create the book, edit it to add categories.</h3>
+    </ng-template>
+
     <div class="form-group text-center">
       <button class="btn btn-success mr-2" [disabled]="form.invalid" type="submit">Save</button>
       <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
     </div>
-
   </form>
 </div>
