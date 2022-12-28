@@ -32,8 +32,12 @@ export class BookUserService {
     return this.http.get<Book[]>(this.baseUrl + 'booksofuser/userId/' + userId + "?actualBooks=false");
   }
 
-  public searchUsersOfBook(bookId: number): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'usersofbook/bookId/'+bookId);
+  public searchActualUsersOfBook(bookId: number): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'usersofbook/bookId/' + bookId);
+  }
+
+  public searchOldUsersOfBook(bookId: number): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'usersofbook/bookId/' + bookId + "?actualUser=false");
   }
 
   public searchAvailabilityOfBook(bookId: number): Observable<boolean> {

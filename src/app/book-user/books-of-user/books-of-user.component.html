@@ -1,5 +1,6 @@
 <div class="jumbtron">
   <form #form="ngForm" autocomplete="off" class="col-md-12 form">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group" *ngIf="formData.id == 0">
       <h2 class="text-center text-primary">Select user</h2>
     </div>
@@ -16,7 +17,6 @@
     <ng-template #editTitle>
       <h2 class="text-center text-primary" [(ngModel)]="formData.userName" name="formData.userName">Books of {{formData.userName}}</h2>
     </ng-template>
-    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">
       <mat-list>
         <h3 class="text-center text-primary">Actual books:</h3>

@@ -1,17 +1,17 @@
 <div class="jumbtron">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
     <h2 class="text-center text-primary">User returns book</h2>
-    <div class="form-group">
+    <div class="form-group text-center">
       <mat-form-field>
         <mat-label>Select user</mat-label>
         <mat-select [(ngModel)]="userId" name="UserId">
-          <mat-option *ngFor="let user of users" [value]="user.id" (click)="updateValues()">
+          <mat-option *ngFor="let user of usersActive" [value]="user.id" (click)="updateValues()">
             <i [ngClass]="{'is-invalid': form.controls['title']?.invalid && form.controls['title']?.touched}">{{user.userName}}</i>
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="form-group">
+    <div class="form-group text-center">
       <mat-form-field>
         <mat-label>Select book</mat-label>
         <mat-select [(ngModel)]="bookId" name="BookId">

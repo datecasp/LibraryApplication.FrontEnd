@@ -19,6 +19,7 @@ import { UserService } from '../../_services/user.service';
 export class UserReturnsBookComponent {
   public formData: BookUserDto = new BookUserDto();
   users: User[] = [];
+  usersActive: User[] = [];
   booksAvailables: Book[] = [];
   public bookAvailability: BookAvailabilityDto[] = [];
   userId: number = 0;
@@ -35,6 +36,11 @@ export class UserReturnsBookComponent {
   ngOnInit(): void {
     (this.userService.getUsers()).subscribe(async users => {
       this.users = users;
+      for (let user of this.users) {
+        if (user.isActive) {
+          this.usersActive.push(new User(user.id, user.userName, true));
+        }
+      }
       this.getValues();
     });
   }

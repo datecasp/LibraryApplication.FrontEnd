@@ -12,6 +12,7 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 import { BooksOfUserComponent } from './book-user/books-of-user/books-of-user.component';
+import { UsersOfBookComponent } from './book-user/users-of-book/users-of-book.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,6 +31,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'userdetail/:id', component: UserDetailComponent },
   { path: 'user/:id', component: UserComponent },
+  { path: 'usersofbook', component: UsersOfBookComponent },
+  { path: 'usersofbook/:id', component: UsersOfBookComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 @NgModule({

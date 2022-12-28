@@ -59,10 +59,6 @@ export class BookComponent implements OnInit {
     });
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-
   public updateRecord(form: NgForm) {
    this.bookService.updateBook(form.form.value.id, form.form.value).subscribe(() => {
      this.toastr.success('Registration successful');
@@ -72,6 +68,10 @@ export class BookComponent implements OnInit {
      this.toastr.error('Saved but not right message IDKW.');
      this.goBack();
    });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   public cancel() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { Book } from '../../_models/Book';
 import { User } from '../../_models/User';
 import { BookService } from '../../_services/book.service';
@@ -51,19 +52,24 @@ export class UserHomeComponent implements OnInit {
    * @param userId
    * @param user
    */
-  public async userActivationToggle(userId: number, user: User) {
-    //this.books = [];
-    //await this.bookUserService.searchBooksOfUser(userId).subscribe(books => {
+  public checkBooksOfUser(userId: number, user: User)
+  {
+    let canInactivate: boolean = true;
 
-    //  for (let book of books) this.books.push(book);
-    //  if (this.books.length != 0) this.userAvailability = false;
-    //  else this.userAvailability = true;
-    //});
+    this.books = [];
+    this.bookUserService.searchActualBooksOfUser(userId).subscribe(books => {
+      this.books = books;
+      if (this.books.length != 0) canInactivate = false;
+      this.userActivationToggle(user, canInactivate);
+    }, err => this.userActivationToggle(user, canInactivate));
+  }
 
-    //  if (this.userAvailability) {
+  public async userActivationToggle(user: User, canInactivate: boolean) {
+    if (canInactivate)
+    {
         this.confirmationDialogService.confirm('Atention', 'Do you really want to change availability to this user?')
           .then(async () =>
-            await this.userService.toggleUserAvailability(userId, user).subscribe(() => {
+            await this.userService.toggleUserAvailability(user.id, user).subscribe(() => {
               this.toastr.success('The user has been updated');
               this.getValues();
             },
@@ -72,19 +78,11 @@ export class UserHomeComponent implements OnInit {
                 this.getValues();
               }))
           .catch(() => '');
-      //}
-      //else {
-      //  this.toastr.error('User with books can´t get inactive.');
-      //}
-  }
-
-  private async checkBooksOfUser(userId: number) {
-    this.books = [];
-    (await this.bookUserService.searchActualBooksOfUser(userId)).subscribe(books => {
-      for (let book of books) this.books.push(book);
-    });
-    if (this.books.length != 0) this.userAvailability = false;
-    else this.userAvailability = true;
+      }
+      else
+      {
+       this.toastr.error('User with books can´t get inactive.');
+      }
   }
 
   public detailsUser(userId: number) {
@@ -95,7 +93,15 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(['/user/' + userId]);
   }
 
-  public booksOfUser(userId: number) {
+  public usersOfBook() {
+    this.router.navigate(['/usersofbook']);
+  }
+
+  public booksOfUser() {
+    this.router.navigate(['/booksofuser']);
+  }
+
+  public booksOfUserId(userId: number) {
     this.router.navigate(['/booksofuser/' + userId]);
   }
 

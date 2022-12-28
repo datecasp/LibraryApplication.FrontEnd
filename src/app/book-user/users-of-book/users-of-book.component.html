@@ -1,1 +1,40 @@
-<p>users-of-book works!</p>
+<div class="jumbtron">
+  <form #form="ngForm" autocomplete="off" class="col-md-12 form">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+    <div class="form-group" *ngIf="formData.id == 0">
+      <h2 class="text-center text-primary">Select book</h2>
+    </div>
+    <div class="form-group text-center" *ngIf="formData.id == 0 else editTitle">
+      <mat-form-field>
+        <mat-label>Select book</mat-label>
+        <mat-select [(ngModel)]="formData.id" name="id">
+          <mat-option *ngFor="let book of books" [value]="book.id" (click)="updateValues(book.id)">
+            <i [ngClass]="{'is-invalid': form.controls['title']?.invalid && form.controls['title']?.touched}">{{book.title}}</i>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <ng-template #editTitle>
+      <h2 class="text-center text-primary" [(ngModel)]="formData.title" name="formData.title">Users of {{formData.title}}</h2>
+    </ng-template>
+    <div class="form-group">
+      <mat-list>
+        <h3 class="text-center text-primary">Actual users:</h3>
+        <mat-list-item *ngFor="let user of users" [(ngModel)]="users" name="users" class="text-center">
+          <i>{{user.userName}}</i>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="form-group">
+      <mat-list>
+        <h3 class="text-center text-primary">Past users:</h3>
+        <mat-list-item *ngFor="let oldUser of oldUsers" [(ngModel)]="oldUsers" name="oldUsers" class="text-center">
+          <i>{{oldUser.userName}}</i>
+        </mat-list-item>
+      </mat-list>
+      <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="button" (click)="goBack()">Back</button>
+      </div>
+    </div>
+  </form>
+</div>
