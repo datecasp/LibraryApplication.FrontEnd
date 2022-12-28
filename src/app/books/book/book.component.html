@@ -1,6 +1,6 @@
 <div class="jumbtron">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
-    <h2 class="text-center text-primary" *ngIf="formData.id != 0 else editTitle">Edit book</h2>
+    <h2 class="text-center" *ngIf="formData.id != 0 else editTitle">Edit book</h2>
     <ng-template #editTitle><h2 class="text-center text-primary">Create book</h2></ng-template>
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">

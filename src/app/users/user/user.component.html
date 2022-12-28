@@ -1,6 +1,6 @@
 <div class="jumbtron">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
-    <h2 class="text-center text-primary">User</h2>
+    <h2 class="text-center">User</h2>
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">
       <input name="userName" #userName="ngModel" [(ngModel)]="formData.userName" class="form-control" required

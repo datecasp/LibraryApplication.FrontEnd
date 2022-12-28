@@ -2,7 +2,7 @@
   <form #form="ngForm" autocomplete="off" class="col-md-12 form">
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group" *ngIf="formData.id == 0">
-      <h2 class="text-center text-primary">Select user</h2>
+      <h2 class="text-center">Select user</h2>
     </div>
     <div class="form-group text-center" *ngIf="formData.id == 0 else editTitle">
         <mat-form-field>
@@ -15,11 +15,11 @@
         </mat-form-field>
     </div>
     <ng-template #editTitle>
-      <h2 class="text-center text-primary" [(ngModel)]="formData.userName" name="formData.userName">Books of {{formData.userName}}</h2>
+      <h2 class="text-center" [(ngModel)]="formData.userName" name="formData.userName">Books of {{formData.userName}}</h2>
     </ng-template>
     <div class="form-group">
       <mat-list>
-        <h3 class="text-center text-primary">Actual books:</h3>
+        <h3 class="text-center">Actual books:</h3>
         <mat-list-item *ngFor="let book of books" [(ngModel)]="books" name="books" class="text-center">
           <i>{{book.title}}</i>
         </mat-list-item>
@@ -27,7 +27,7 @@
     </div>
     <div class="form-group">
       <mat-list>
-        <h3 class="text-center text-primary">Past books:</h3>
+        <h3 class="text-center">Past books:</h3>
         <mat-list-item *ngFor="let oldBook of oldBooks" [(ngModel)]="oldBooks" name="oldBooks" class="text-center">
           <i>{{oldBook.title}}</i>
         </mat-list-item>
