@@ -95,6 +95,10 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(['/user/' + userId]);
   }
 
+  public booksOfUser(userId: number) {
+    this.router.navigate(['/booksofuser/' + userId]);
+  }
+
   public userGetsBook() {
     this.router.navigate(['/usergetsbook']);
   }

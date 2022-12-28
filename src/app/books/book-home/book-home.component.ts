@@ -78,4 +78,8 @@ export class BookHomeComponent implements OnInit {
     this.router.navigate(['/userreturnsbook']);
   }
 
+  public booksOfUser()
+  {
+    this.router.navigate(['/booksofuser']);
+  }
 }

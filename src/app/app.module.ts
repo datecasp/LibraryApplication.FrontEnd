@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -82,6 +83,7 @@ import { BooksOfUserComponent } from './book-user/books-of-user/books-of-user.co
     MatCardModule,
     MatGridListModule,
     MatCheckboxModule,
+    MatListModule,
     ToastrModule.forRoot()
   ],
   providers: [

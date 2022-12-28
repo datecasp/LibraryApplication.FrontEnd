@@ -11,6 +11,7 @@ import { UserHomeComponent } from './users/user-home/user-home.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book.component';
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
+import { BooksOfUserComponent } from './book-user/books-of-user/books-of-user.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'book', component: BookComponent },
   { path: 'bookdetail/:id', component: BookDetailComponent },
   { path: 'book/:id', component: BookComponent },
+  { path: 'booksofuser', component: BooksOfUserComponent },
+  { path: 'booksofuser/:id', component: BooksOfUserComponent },
   { path: 'usergetsbook', component: UserGetsBookComponent },
   { path: 'userreturnsbook', component: UserReturnsBookComponent },
   { path: 'categories', component: CategoryHomeComponent },
