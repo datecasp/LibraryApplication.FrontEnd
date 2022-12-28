@@ -24,8 +24,12 @@ export class BookUserService {
     return await this.http.put(this.baseUrl + 'userreturnsbook', bookUserDto);
   }
 
-  public searchBooksOfUser(userId: number): Observable<Book[]> {
+  public searchActualBooksOfUser(userId: number): Observable<Book[]> {
     return this.http.get<Book[]>(this.baseUrl + 'booksofuser/userId/' + userId);
+  }
+
+  public searchOldBooksOfUser(userId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl + 'booksofuser/userId/' + userId + "?actualBooks=false");
   }
 
   public searchUsersOfBook(bookId: number): Observable<User[]> {

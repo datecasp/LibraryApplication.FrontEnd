@@ -80,7 +80,7 @@ export class UserHomeComponent implements OnInit {
 
   private async checkBooksOfUser(userId: number) {
     this.books = [];
-    (await this.bookUserService.searchBooksOfUser(userId)).subscribe(books => {
+    (await this.bookUserService.searchActualBooksOfUser(userId)).subscribe(books => {
       for (let book of books) this.books.push(book);
     });
     if (this.books.length != 0) this.userAvailability = false;

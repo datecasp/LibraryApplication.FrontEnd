@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../_models/User';
 import { BookCategoryService } from '../../_services/bookCategory.service';
@@ -17,6 +18,7 @@ export class UserDetailComponent implements OnInit {
   constructor(private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location,
     private toastr: ToastrService) { }
 
   async ngOnInit(): Promise<void> {
@@ -35,7 +37,7 @@ export class UserDetailComponent implements OnInit {
 
   }
 
-  public back() {
-    this.router.navigate(['/users']);
+  public goBack(): void {
+    this.location.back();
   }
 }

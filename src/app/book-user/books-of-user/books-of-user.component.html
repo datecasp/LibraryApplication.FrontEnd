@@ -1,5 +1,5 @@
 <div class="jumbtron">
-  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="col-md-5 form">
+  <form #form="ngForm" autocomplete="off" class="col-md-12 form">
     <div class="form-group" *ngIf="formData.id == 0 else editTitle">
       <h2 class="text-center text-primary">Select user</h2>
       <a class="text-center">
@@ -19,10 +19,22 @@
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
     <div class="form-group">
       <mat-list>
+        <h3 class="text-center text-primary">Actual books:</h3>
         <mat-list-item *ngFor="let book of books" [(ngModel)]="books" name="books" class="text-center">
           <i>{{book.title}}</i>
         </mat-list-item>
       </mat-list>
+    </div>
+    <div class="form-group">
+      <mat-list>
+        <h3 class="text-center text-primary">Past books:</h3>
+        <mat-list-item *ngFor="let oldBook of oldBooks" [(ngModel)]="oldBooks" name="oldBooks" class="text-center">
+          <i>{{oldBook.title}}</i>
+        </mat-list-item>
+      </mat-list>
+      <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="button" (click)="goBack()">Back</button>
+      </div>
     </div>
   </form>
 </div>

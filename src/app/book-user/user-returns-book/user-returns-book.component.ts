@@ -44,7 +44,7 @@ export class UserReturnsBookComponent {
       let k: number = 0;
       for (let i = 0; i < books.length; i++) {
         this.bookAvailability[i] = new BookAvailabilityDto(books[i], true);
-        (await this.bookUserService.searchBooksOfUser(this.userId).subscribe(books => {
+        (await this.bookUserService.searchActualBooksOfUser(this.userId).subscribe(books => {
           for (let book of books)
           {
             if (this.bookAvailability[i].bookId == book.id)

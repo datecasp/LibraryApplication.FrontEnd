@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,6 +18,8 @@ export class BooksOfUserComponent {
   public formData: User = new User(0, "un nombre", false);
   public users: User[] = [];
   public books: Book[] = [];
+  public oldBooks: Book[] = [];
+  @Input() userIdDetail: number = 0;
 
   constructor(public bookService: BookService,
     private userService: UserService,
@@ -35,10 +37,11 @@ export class BooksOfUserComponent {
     });
 
     if (id != null) {
-      //this.userService.getUserById(id).subscribe(user => {
-      //  this.formData = user;
       this.updateValues(Number(id));
-      //});
+    }
+    else if (this.userIdDetail != 0)
+    {
+      this.updateValues(Number(this.userIdDetail));
     }
     else
     {
@@ -52,25 +55,18 @@ export class BooksOfUserComponent {
   {
     this.userService.getUserById(userId).subscribe(user => {
       this.formData = user;
-    this.bookUserService.searchBooksOfUser(userId).subscribe(books => {
-      this.books = books;
-    });
+      this.bookUserService.searchActualBooksOfUser(userId).subscribe(books => {
+        this.books = books;
+        this.bookUserService.searchOldBooksOfUser(userId).subscribe(books => {
+          this.oldBooks = books;
+
+        });
+      });
     });
   }
 
-  public onSubmit(form: NgForm) {
-    form.value.bookId = Number(form.value.bookId);
-    if (form.value.id === 0) {
-    } else {
-    }
-  }
-
-  goBack(): void {
+  public goBack(): void {
     this.location.back();
-  }
-
-  public cancel() {
-    this.goBack();
   }
 
   private resetForm(form?: NgForm) {
