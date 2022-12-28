@@ -38,6 +38,10 @@ import { UserGetsBookComponent } from './book-user/user-gets-book/user-gets-book
 import { UserReturnsBookComponent } from './book-user/user-returns-book/user-returns-book.component';
 import { CategorySelectorComponent } from './categories/category-selector/category-selector.component';
 import { CategoryHomeComponent } from './categories/category-home/category-home.component';
+import { BookWithCategoriesComponent } from './book-category/book-with-categories/book-with-categories.component';
+import { CategoriesOfBookComponent } from './book-category/categories-of-book/categories-of-book.component';
+import { UsersOfBookComponent } from './book-user/users-of-book/users-of-book.component';
+import { BooksOfUserComponent } from './book-user/books-of-user/books-of-user.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { CategoryHomeComponent } from './categories/category-home/category-home.
     UserHomeComponent,
     UserDetailComponent,
     CategorySelectorComponent,
-    CategoryHomeComponent
+    CategoryHomeComponent,
+    BookWithCategoriesComponent,
+    CategoriesOfBookComponent,
+    UsersOfBookComponent,
+    BooksOfUserComponent
   ],
   imports: [
     BrowserModule,
