@@ -1,9 +1,9 @@
 <div class="jumbtron">
-  <form #form="ngForm" autocomplete="off" class="col-md-5 form">
+  <form #form="ngForm" autocomplete="off" class="col-md-9 form">
     <h2 class="text-center text-primary">Book details</h2>
     <div class="form-group">
       <div class="form-group">
-        <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-list cols="10" rowHeight="100px">
           <div class="form-group">
             <mat-grid-tile [colspan]="3" [rowspan]="4">
               <img src="https://i0.wp.com/www.irinadelgado.com/wp-content/uploads/2020/04/Herramienta-para-hacer-portadas-de-libros.png" />
@@ -12,6 +12,11 @@
           <div class="form-group">
             <mat-grid-tile [colspan]="2">
               <span>Title: </span><br /> <span>{{bookDetails.title}}</span>
+            </mat-grid-tile>
+          </div>
+          <div class="form-group">
+            <mat-grid-tile [colspan]="5" [rowspan]="4">
+              <app-users-of-book [bookIdDetail]="book.id"></app-users-of-book>
             </mat-grid-tile>
           </div>
           <div class="form-group">
