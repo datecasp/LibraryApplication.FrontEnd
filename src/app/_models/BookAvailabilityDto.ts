@@ -1,5 +1,10 @@
 import { Book } from "./Book";
 
+/**
+ * DTO to add availability of book
+ * isAvailable depends of if there is a relation
+ * betwen books and users tagged as ActualUser
+ * */
 export class BookAvailabilityDto {
   bookId: number = 0;
   title: string = "";
